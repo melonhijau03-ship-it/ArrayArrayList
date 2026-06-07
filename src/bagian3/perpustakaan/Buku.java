@@ -6,36 +6,43 @@ public class Buku {
     // Atribut: data yang dimiliki setiap buku
     private String judul;
     private String penulis;
+    private int tahunTerbit; // Penambahan atribut tahunTerbit
     private boolean dipinjam;
-    
-    // Constructor: dipanggil saat objek dibuat
-    public Buku(String judul, String penulis) {
-    this.judul = judul;
-    this.penulis = penulis;
-    this.dipinjam = false; // buku baru dianggap tersedia
+
+    // Constructor: disesuaikan untuk menerima parameter tahunTerbit
+    public Buku(String judul, String penulis, int tahunTerbit) {
+        this.judul = judul;
+        this.penulis = penulis;
+        this.tahunTerbit = tahunTerbit;
+        this.dipinjam = false; // buku baru dianggap tersedia
     }
-    
+
     // Getter: cara membaca atribut dari luar class
     public String getJudul() {
-    return judul;
+        return judul;
     }
-    
+
     public String getPenulis() {
-    return penulis;
+        return penulis;
     }
-    
+
+    public int getTahunTerbit() { // Getter untuk tahunTerbit
+        return tahunTerbit;
+    }
+
     public boolean isDipinjam() {
-    return dipinjam;
+        return dipinjam;
     }
-    
+
     // Method untuk mengubah status pinjam
     public void setDipinjam(boolean dipinjam) {
-    this.dipinjam = dipinjam;
+        this.dipinjam = dipinjam;
     }
-    
-    // Mengembalikan keterangan buku dalam bentuk teks
+
+    // Mengembalikan keterangan buku beserta tahun terbit
     public String info() {
-    String status = dipinjam ? "Dipinjam" : "Tersedia";
-    return judul + " oleh " + penulis + " [" + status + "]";
+        String status = dipinjam ? "Dipinjam" : "Tersedia";
+        // Menampilkan tahun terbit di dalam info
+        return judul + " (" + tahunTerbit + ") oleh " + penulis + " [" + status + "]";
     }
 }   
